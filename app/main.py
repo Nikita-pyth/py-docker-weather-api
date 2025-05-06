@@ -1,6 +1,17 @@
+import requests
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
+
+
 def get_weather() -> None:
-    # write your code here
-    pass
+    payload = {"q": "Paris", "key": API_KEY,}
+    r = requests.get("http://api.weatherapi.com/v1/current.json", params=payload)
+    print(r.text)
 
 
 if __name__ == "__main__":
