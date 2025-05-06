@@ -9,9 +9,12 @@ API_KEY = os.getenv("API_KEY")
 
 
 def get_weather() -> None:
-    payload = {"q": "Paris", "key": API_KEY,}
-    r = requests.get("http://api.weatherapi.com/v1/current.json", params=payload)
-    print(r.text)
+    payload = {"q": "Paris", "key": API_KEY}
+    res = requests.get(
+        "http://api.weatherapi.com/v1/current.json",
+        params=payload
+    )
+    print(res.text)
 
 
 if __name__ == "__main__":
