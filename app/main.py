@@ -9,6 +9,9 @@ API_KEY = os.getenv("API_KEY")
 
 
 def get_weather() -> None:
+    if not API_KEY:
+        print("No api key provided")
+        return
     payload = {"q": "Paris", "key": API_KEY}
     res = requests.get(
         "http://api.weatherapi.com/v1/current.json",
